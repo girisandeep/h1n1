@@ -96,14 +96,14 @@ def predict_tool_wrapper(
     }
 
     # Print the assembled dict right before calling the model
-    print("\n--- TOOL CALL START: predict_h1n1_adoption ---")
-    print("  user_input:", user_input)
+    # print("\n--- TOOL CALL START: predict_h1n1_adoption ---")
+    # print("  user_input:", user_input)
     try:
         output = predict_h1n1_adoption(user_input)
-        print("--- TOOL CALL END:   predict_h1n1_adoption →", output, "\n")
+        # print("--- TOOL CALL END:   predict_h1n1_adoption →", output, "\n")
         return output
     except Exception as ex:
-        print("--- TOOL CALL ERROR: predict_h1n1_adoption raised", repr(ex), "\n")
+        # print("--- TOOL CALL ERROR: predict_h1n1_adoption raised", repr(ex), "\n")
         raise
 
 def read_until_two_blank_lines():
@@ -151,6 +151,7 @@ def main():
     )
 
     print("H1N1‐Vaccine Agent (type 'exit' or 'quit' to stop)")
+    print("Press ENTER twice to complete the input.")
     while True:
         user_text = read_until_two_blank_lines().strip()
         if user_text.lower() in ("exit", "quit"):
@@ -162,11 +163,11 @@ def main():
             result = app.invoke({"messages": [human_msg]})
 
             # 4) Print every message in the final exchange
-            print("=== FULL CHAT EXCHANGE ===")
-            for i, msg in enumerate(result["messages"], start=1):
-                role_name = msg.__class__.__name__  # e.g. HumanMessage, AIMessage, ToolResponseMessage
-                print(f"{i:02d}) [{role_name}] {msg.content}")
-            print("=== END EXCHANGE ===\n")
+            # print("=== FULL CHAT EXCHANGE ===")
+            # for i, msg in enumerate(result["messages"], start=1):
+            #     role_name = msg.__class__.__name__  # e.g. HumanMessage, AIMessage, ToolResponseMessage
+            #     print(f"{i:02d}) [{role_name}] {msg.content}")
+            # print("=== END EXCHANGE ===\n")
 
         except KeyboardInterrupt:
             # If you hit Ctrl+C during input(), it will drop here.

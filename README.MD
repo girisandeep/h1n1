@@ -1,3 +1,13 @@
+# Install
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Run
+OPENAI_API_KEY=sk-....
+python langgraph_agent.py
+
+
 
     Will this is user adopt h1n1:
         "h1n1_concern": 1,
