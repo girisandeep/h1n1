@@ -10,10 +10,10 @@ from langchain_core.tools import tool
 from langgraph.prebuilt.chat_agent_executor import create_tool_calling_executor
 
 # Turn on DEBUG logging so that we see LangChain internals if needed
-logging.basicConfig(level=logging.INFO)
-logging.getLogger("langchain").setLevel(logging.DEBUG)
-logging.getLogger("langchain_core").setLevel(logging.DEBUG)
-logging.getLogger("openai").setLevel(logging.DEBUG)
+# logging.basicConfig(level=logging.INFO)
+# logging.getLogger("langchain").setLevel(logging.DEBUG)
+# logging.getLogger("langchain_core").setLevel(logging.DEBUG)
+# logging.getLogger("openai").setLevel(logging.DEBUG)
 
 # Import your actual model functions
 from h1n1_agent import train_h1n1_model, predict_h1n1_adoption
@@ -100,7 +100,7 @@ def predict_tool_wrapper(
     # print("  user_input:", user_input)
     try:
         output = predict_h1n1_adoption(user_input)
-        # print("--- TOOL CALL END:   predict_h1n1_adoption →", output, "\n")
+        print("--- TOOL CALL END:   predict_h1n1_adoption →", output, "\n")
         return output
     except Exception as ex:
         # print("--- TOOL CALL ERROR: predict_h1n1_adoption raised", repr(ex), "\n")
@@ -161,8 +161,8 @@ def main():
         human_msg = HumanMessage(content=user_text)
         try:
             result = app.invoke({"messages": [human_msg]})
-
-            # 4) Print every message in the final exchange
+            print(result)
+            # # 4) Print every message in the final exchange
             # print("=== FULL CHAT EXCHANGE ===")
             # for i, msg in enumerate(result["messages"], start=1):
             #     role_name = msg.__class__.__name__  # e.g. HumanMessage, AIMessage, ToolResponseMessage

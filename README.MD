@@ -1,3 +1,8 @@
+# Problem Statement
+Design an Agentic workflow to train and predict a model for h1n1 vaccine usage. 
+
+Data: https://github.com/emykes/Flu_Vaccination_ML/tree/main?tab=readme-ov-file
+
 # Install
 virtualenv venv
 source venv/bin/activate
@@ -7,9 +12,9 @@ pip install -r requirements.txt
 OPENAI_API_KEY=sk-....
 python langgraph_agent.py
 
+Example 1: Relearn from the data
 
-
-    Will this is user adopt h1n1:
+Example 2: Will this is user adopt h1n1:
         "h1n1_concern": 1,
         "h1n1_knowledge": 1,
         "behavioral_face_mask": 0,
